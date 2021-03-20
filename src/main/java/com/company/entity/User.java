@@ -1,13 +1,13 @@
 package com.company.entity;
 
 import java.sql.Date;
-
 public class User {
     public int id;
     public String name;
     public String surname;
     private String phone;
     private String email;
+    private String password;
     private String profileDescription;
     private Date birthDate;
     private Country nationality;
@@ -105,6 +105,22 @@ public class User {
 
     public void setProfileDescription(String profileDescription) {
         this.profileDescription = profileDescription;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setNationality(com.company.entity.Country nationality) {
+        this.nationality = nationality;
+    }
+
+    public void setBirthPlace(com.company.entity.Country birthPlace) {
+        this.birthPlace = birthPlace;
     }
 
     @Override
