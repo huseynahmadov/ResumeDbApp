@@ -9,6 +9,8 @@ public interface UserDaoInter {
 
     public User findByEmailAndPassword(String email, String password);
 
+    public User findByEmail(String email);
+
     public boolean addUser(User u);
 
     public boolean updateUser(User u);

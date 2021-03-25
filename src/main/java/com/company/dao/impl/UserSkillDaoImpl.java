@@ -2,8 +2,6 @@ package com.company.dao.impl;
 
 import com.company.dao.inter.AbstractDAO;
 import com.company.dao.inter.UserSkillDaoInter;
-import com.company.entity.Skill;
-import com.company.entity.User;
 import com.company.entity.UserSkill;
 
 import java.sql.Connection;
@@ -20,7 +18,8 @@ public class UserSkillDaoImpl extends AbstractDAO implements UserSkillDaoInter {
         String skillName = rs.getString("skill_name");
         int power = rs.getInt("power");
 
-        return new UserSkill(userId, new User(userId), new Skill(skillId, skillName), power);
+//        return new UserSkill(userId, new User(userId), new Skill(skillId, skillName), power);
+        return null;
     }
 
     @Override
@@ -29,18 +28,18 @@ public class UserSkillDaoImpl extends AbstractDAO implements UserSkillDaoInter {
 
         try (Connection c = connect()) {
 
-            PreparedStatement stmt = c.prepareStatement("SELECT\n" +
-                    "\tu.*,\n" +
-                    "\tus.skill_id,\n" +
-                    "\ts.name AS skill_name,\n" +
-                    "\tus.power \n" +
-                    "FROM\n" +
-                    "\tuser_skill us\n" +
-                    "\tLEFT JOIN USER u ON us.user_id = u.id\n" +
-                    "  LEFT JOIN skill s ON us.skill_id = s.id\n" +
-                    "\n" +
-                    "WHERE\n" +
-                    "\tus.user_id = ?");
+            PreparedStatement stmt = c.prepareStatement("SELECT\n"
+                    + "\tu.*,\n"
+                    + "\tus.skill_id,\n"
+                    + "\ts.name AS skill_name,\n"
+                    + "\tus.power \n"
+                    + "FROM\n"
+                    + "\tuser_skill us\n"
+                    + "\tLEFT JOIN USER u ON us.user_id = u.id\n"
+                    + "  LEFT JOIN skill s ON us.skill_id = s.id\n"
+                    + "\n"
+                    + "WHERE\n"
+                    + "\tus.user_id = ?");
             stmt.setInt(1, userId);
             stmt.execute();
             ResultSet rs = stmt.getResultSet();
@@ -54,6 +53,5 @@ public class UserSkillDaoImpl extends AbstractDAO implements UserSkillDaoInter {
         }
         return result;
     }
-
 
 }

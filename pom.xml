@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.company</groupId>
     <artifactId>ResumeDbApp</artifactId>
-    <version>1.0</version>
+    <version>0.1-jpa</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,10 +17,17 @@
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.23</version>
 </dependency>
+
         <dependency>
-            <groupId>com.company</groupId>
-            <artifactId>ResumeDbApp</artifactId>
-            <version>1.0</version>
+            <groupId>at.favre.lib</groupId>
+            <artifactId>bcrypt</artifactId>
+            <version>0.2.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+        
     </dependencies>
 </project>
